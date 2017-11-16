@@ -1,0 +1,62 @@
+<!--record.wxml-->
+<view class="contentbg">
+
+  <view class="record-text-move">
+    <text class="bg-title">我的战绩</text>
+    <view class="titlelist">
+      <view class="onelist">
+        <text class="onevalue">{{battle.totalInto}}.00</text>
+        <text class="onedesc">累计投入(元)</text>
+      </view>
+      <view class="onelist">
+        <text class="onevalue">{{battle.totalIncome}}.00</text>
+        <text class="onedesc">累计赚取(元)</text>
+      </view>
+      <view class="onelist">
+        <text class="onevalue">{{battle.sucessPuch}}</text>
+        <text class="onedesc">成功打卡(天)</text>
+      </view>
+    </view>
+    <view class="tips">每日瓜分金额将于 9:00 前发放到微信红包</view>
+  </view>
+</view>
+
+
+<!-- 晒战绩 -->
+<view bindtap="showS5hareAction" class="z-userCenter">
+  <image src="{{userInfo.avatarUrl}}"></image>
+  <text>晒战绩</text>  
+</view>
+
+<!-- 战绩列表 -->
+<view class="records-list">
+  
+  <scroll-view scroll-y style="height:100%;">
+    <view class="records-desc">战绩明细</view>
+    <view class="allrecords" wx:for="{{battle.userDetail}}" wx:for-item="itemName">
+      <view class="onerecords">
+        <view class="timer">{{itemName.createtime}}</view>
+      
+        <view class="state" wx:if="{{itemName.punch=='pay'}}">待打卡</view>
+        <view class="state" wx:if="{{itemName.punch=='punch'}}">已打卡</view>
+        <view class="paymoney">-1.00</view>
+      </view>
+    </view>
+    
+  </scroll-view>
+
+</view>
+
+
+<!-- canvas绘图 -->
+<!-- <view class="z-canvas-box">
+  <view style="width:250px;height:250px;">
+    <canvas style="width:100%; height:100%;" canvas-id="firstCanvas"></canvas>
+    <view class="share-btn-box">
+      <button class="cencle-btn">取消</button>
+      <button class="share-btn" bindtap="shareSave">分享到朋友圈</button>
+    </view>
+  </view>
+</view> -->
+
+

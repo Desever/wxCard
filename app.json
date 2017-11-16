@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/record/record",
+    "pages/logs/logs",
+    "pages/document/doc"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#115D7B",
+    "navigationBarTitleText": "早起打卡赢收益",
+    "navigationBarTextStyle": "#fff"
+  }
+}

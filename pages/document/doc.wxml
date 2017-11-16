@@ -1,0 +1,9 @@
+<!--富文本解析模板-->
+<import src="../wxParse/wxParse.wxml"/>
+
+
+<view class="z-document">
+  <image src="./img/active-role.png" class="doc-img"></image>
+  <!-- 引入富文本 -->
+  <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>

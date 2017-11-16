@@ -1,0 +1,15 @@
+/* doc.wxss */
+.z-document{
+  padding-left:40rpx;
+  padding-right:40rpx;
+}
+.z-document image{
+  width:100%;
+  height:230rpx;
+  display: block;
+  margin:0 auto;
+}
+
+
+/* 引入富文本解析 */
+@import "../wxParse/wxParse.wxss";

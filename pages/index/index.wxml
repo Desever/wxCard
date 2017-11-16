@@ -1,0 +1,154 @@
+
+
+<!--index.wxml-->
+<view class="z-top-container">
+
+  <image src="./img/view2.png" class="z-Slogan"></image>
+
+  <!-- 个人中心 -->
+  <view bindtap="goNext" class="z-userCenter">
+    <image src="{{userInfo.avatarUrl}}"></image>   
+  </view>
+
+
+  <!-- 分享给好友 -->
+  <view class="z-shareUser">
+    <button open-type="share">12</button>
+    <image bindload="bindImgLoad" src="./img/share.png"></image>   
+  </view>
+
+  <!-- 文字定位 -->
+  <view class="bg-positText">
+    <!-- 
+    瓜分 
+    -->
+    <text class="z-carvUp-text">明早打卡可瓜分金额(元)</text>
+    <text class="z-carvUp-num">180200</text>
+    <!-- 
+    参与
+    -->
+    <text class="z-challenge-text">目前有<text style="color:#f3f29d;">177777</text>人参与打卡挑战</text>
+
+    <!-- 参与者 -->
+    <view class="z-allCher-list">
+      <image bindload="bindImgLoad" src="{{userInfo.avatarUrl}}"></image>
+      <image src="{{userInfo.avatarUrl}}"></image>   
+      <image src="{{userInfo.avatarUrl}}"></image>
+      <image src="{{userInfo.avatarUrl}}"></image>   
+      <image src="{{userInfo.avatarUrl}}"></image>
+      <image src="{{userInfo.avatarUrl}}"></image>
+      <image src="{{userInfo.avatarUrl}}"></image>
+      <image src="{{userInfo.avatarUrl}}"></image>
+    </view>
+
+    <!-- 规则 -->
+    <view class="z-role" bindtap="goNext3"> 
+      <text>挑战规则</text>
+      <image src="./img/ruleicon.png"></image>
+    </view>
+  
+  </view>
+</view>
+
+
+<!-- 按钮 支付一元参与打卡-->
+<view class="z-join" wx:if="{{countDown==null}}">
+  <button bindtap="getJoin">支付一元参与打卡</button>
+</view>
+
+<!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">123</button> -->
+
+<!-- 按钮 倒计时-->
+<view class="z-join" wx:if="{{countDown!=null}}">
+  <button bindtap="getClock">{{countDown}}</button>
+</view>
+
+
+
+
+<!-- 打卡情况 -->
+ <view class="z-tardy">
+
+  <text class="title">今日打卡战况</text>
+  
+  <view class="z-tardy-num">
+    <view class="success"><text>101023</text>成功</view>
+    <view class="faild"><text>101023</text>失败</view>
+  </view>
+
+</view>
+
+<!-- 分红结果 -->
+ <view class="z-chMoney-res">
+
+    <view class="imglist-box">
+      <image class="face" src="{{userInfo.avatarUrl}}"></image>
+      
+      <view class="chmoney-type">
+        <image class="start" src="./img/start-3.png"></image>
+        <text class="userType">早起之星</text>
+      </view>
+
+      <text class="userName">AuZo</text>
+      <text class="userTimer">09:00 打卡</text>
+    </view>
+    
+    <view class="imglist-box">
+      <image class="face" src="{{userInfo.avatarUrl}}"></image>
+      <view class="chmoney-type">
+        <image class="start" src="./img/start-1.png"></image>
+        <text class="userType">手气之星</text>
+      </view> 
+      <text class="userName">AuZo</text>
+      <text class="userTimer">180123123元</text>
+    </view>
+    
+    <view class="imglist-box">
+      <image class="face" src="{{userInfo.avatarUrl}}"></image>
+      <view class="chmoney-type">
+         <image class="start" src="./img/start-2.png"></image>
+        <text class="userType">毅力之星</text>
+      </view>
+       <text class="userName">AuZo</text>
+      <text class="userTimer">连续100次</text>
+    </view>
+  
+  </view> 
+
+<!-- 
+打卡结果
+ -->
+<view class="'join-modal'+' '+{{showSuccess}}">
+
+  <view class="z-join-result">
+
+    <image src="./img/clock-success-bg.png" class="clock-sBg"></image>
+
+    <view class="header">
+    
+      <!-- 打卡成功 -->
+      <image src="./img/clock-success.png"></image>
+
+      <!-- 打卡成功文字 -->
+      <text>每日打卡时间：5:00-8:00</text>
+
+    </view>
+
+
+    <view class="footer">
+      <text class="money-text">您的打卡奖励金</text>
+      <text class="money-text">将于近日<text style="color:#E89800;">17点</text>前打入小金库</text>
+
+      <!-- 按钮 -->
+      <view class="z-join joinRes-style" style="padding-top:40rpx;">
+        <button bindtap="goNext2">继续坚持一天</button>
+      </view>
+
+    </view>
+
+  </view>
+
+  <image src="./img/close.png" class="close-modal" bindtap="closeSuccess"></image>
+
+</view>
+
